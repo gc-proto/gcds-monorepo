@@ -98,3 +98,8 @@ coverage/
 # Temporary folders
 tmp/
 temp/
+
+# Cloned fork repositories (see SETUP.md for installation)
+packages/gcds-components/
+packages/gcds-examples/
+packages/gcds-shortcuts/

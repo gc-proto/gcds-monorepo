@@ -14,14 +14,13 @@ pnpm install
 ```
 
 ### 2. Clone Fork Repositories
-The monorepo structure includes placeholder directories for the three fork repositories. Clone them into the packages directory:
+The fork repositories are gitignored and must be cloned locally. This keeps the main repository clean while enabling full development capabilities:
 
 ```bash
 # Navigate to packages directory
 cd packages
 
-# Remove placeholder directories and clone the three fork repositories
-rm -rf gcds-examples gcds-components gcds-shortcuts
+# Clone the three fork repositories (these are gitignored)
 git clone https://github.com/gc-proto/gcds-examples.git gcds-examples
 git clone https://github.com/gc-proto/gcds-components.git gcds-components  
 git clone https://github.com/gc-proto/gcds-css-shortcuts.git gcds-shortcuts
@@ -35,11 +34,17 @@ pnpm install
 
 ### 3. Verify Setup
 ```bash
+# Verify all packages are present
+ls packages/
+# Should show: gcds-components/ gcds-examples/ gcds-shortcuts/
+
 # Test the build process
 pnpm build
+# Should generate 3 HTML files in packages/gcds-examples/templates/
 
 # Start development server  
 pnpm dev
+# Should start Eleventy with live reload at http://localhost:8080
 ```
 
 ## Development Workflow

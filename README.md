@@ -4,17 +4,24 @@ This monorepo provides a unified development environment for contributing to the
 
 ## Quick Start
 
-1. **Install dependencies:**
+1. **Clone and setup (first time only):**
+   ```bash
+   git clone https://github.com/gc-proto/gcds-monorepo.git
+   cd gcds-monorepo
+   ```
+   **Then follow [SETUP.md](SETUP.md) to clone fork repositories**
+
+2. **Install dependencies:**
    ```bash
    pnpm install
    ```
 
-2. **Start development server:**
+3. **Start development server:**
    ```bash
    pnpm dev
    ```
 
-3. **Build artifacts:**
+4. **Build artifacts:**
    ```bash
    pnpm build
    ```
@@ -26,11 +33,11 @@ This monorepo provides a unified development environment for contributing to the
 /gc-proto/gcds-monorepo
 ├── apps/
 │   └── gcds.test.canada.ca/       # Eleventy development site
-├── packages/
-│   ├── gcds-components/    # Fork of cds-snc/gcds-components
-│   ├── gcds-examples/      # Fork of cds-snc/gcds-examples
-│   └── gcds-shortcuts/     # Fork of cds-snc/gcds-shortcuts
-└── README.md
+├── packages/                      # Fork repositories (gitignored)
+│   ├── gcds-components/    # Fork of cds-snc/gcds-components (local only)
+│   ├── gcds-examples/      # Fork of cds-snc/gcds-examples (local only)
+│   └── gcds-shortcuts/     # Fork of cds-snc/gcds-shortcuts (local only)
+└── SETUP.md                # Setup instructions for cloning forks
 ```
 
 ### Key Features
