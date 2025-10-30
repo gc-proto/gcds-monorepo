@@ -1,5 +1,5 @@
 {
-  "name": "11ty-preview",
+  "name": "gcds.test.canada.ca",
   "version": "1.0.0",
   "description": "Eleventy development site for GC Design System components",
   "private": true,
@@ -12,8 +12,8 @@
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "@gc-proto/gcds-components": "workspace:*",
-    "@gc-proto/gcds-shortcuts": "workspace:*"
+    "gcds-components-repo": "workspace:*",
+    "@gcds-core/css-shortcuts": "workspace:*"
   },
   "devDependencies": {
     "@11ty/eleventy-dev-server": "^1.0.4"

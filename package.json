@@ -5,9 +5,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "pnpm --filter 11ty-preview build",
-    "dev": "pnpm --filter 11ty-preview dev",
-    "serve": "pnpm --filter 11ty-preview serve",
+    "build": "pnpm --filter gcds.test.canada.ca build",
+    "dev": "pnpm --filter gcds.test.canada.ca dev",
+    "serve": "pnpm --filter gcds.test.canada.ca serve",
     "install:all": "pnpm install",
     "sync:forks": "echo 'Manual sync required - see GitHub Actions automation'"
   },

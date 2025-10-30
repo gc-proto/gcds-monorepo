@@ -25,7 +25,7 @@ This monorepo provides a unified development environment for contributing to the
 ```
 /gc-proto/gcds-monorepo
 ├── apps/
-│   └── 11ty-preview/       # Eleventy development site
+│   └── gcds.test.canada.ca/       # Eleventy development site
 ├── packages/
 │   ├── gcds-components/    # Fork of cds-snc/gcds-components
 │   ├── gcds-examples/      # Fork of cds-snc/gcds-examples
@@ -42,7 +42,7 @@ This monorepo provides a unified development environment for contributing to the
 
 ## Development Workflow
 
-1. **Local Development**: Work on Nunjucks templates in `apps/11ty-preview/src/`
+1. **Local Development**: Work on Nunjucks templates in `apps/gcds.test.canada.ca/src/`
 2. **Build**: Run `pnpm build` to generate HTML artifacts
 3. **Review**: Check generated files in `packages/gcds-examples/templates/`
 4. **Contribute**: Create PR from fork to upstream repository

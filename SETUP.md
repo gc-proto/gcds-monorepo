@@ -48,7 +48,7 @@ pnpm dev
 
 ```
 /gc-proto/gcds-monorepo
-├── apps/11ty-preview/          # Development environment
+├── apps/gcds.test.canada.ca/          # Development environment
 ├── packages/
 │   ├── gcds-examples/          # Cloned fork repository
 │   ├── gcds-components/        # Cloned fork repository
@@ -68,7 +68,7 @@ pnpm dev  # Starts 11ty with live reload
 
 ### Create New Examples
 
-1. Add templates to `apps/11ty-preview/src/templates/english/` or `apps/11ty-preview/src/templates/french/`
+1. Add templates to `apps/gcds.test.canada.ca/src/templates/english/` or `apps/gcds.test.canada.ca/src/templates/french/`
 2. Use the base layout and include GC Design System components
 3. Run `pnpm build` to generate HTML artifacts
 4. Check results in `packages/gcds-examples/templates/`
