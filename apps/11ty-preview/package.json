@@ -1,0 +1,21 @@
+{
+  "name": "11ty-preview",
+  "version": "1.0.0",
+  "description": "Eleventy development site for GC Design System components",
+  "private": true,
+
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --watch",
+    "serve": "eleventy --serve",
+    "clean": "rm -rf ../../packages/gcds-examples/templates/english/* ../../packages/gcds-examples/templates/french/*"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@gc-proto/gcds-components": "workspace:*",
+    "@gc-proto/gcds-shortcuts": "workspace:*"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-dev-server": "^1.0.4"
+  }
+}

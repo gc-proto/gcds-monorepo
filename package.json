@@ -1,0 +1,21 @@
+{
+  "name": "gc-proto-gcds-monorepo",
+  "version": "1.0.0",
+  "description": "Developer Contribution Hub for GC Design System",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm --filter 11ty-preview build",
+    "dev": "pnpm --filter 11ty-preview dev",
+    "serve": "pnpm --filter 11ty-preview serve",
+    "install:all": "pnpm install",
+    "sync:forks": "echo 'Manual sync required - see GitHub Actions automation'"
+  },
+  "devDependencies": {
+    "pnpm": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}

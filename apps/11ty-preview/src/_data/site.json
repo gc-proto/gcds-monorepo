@@ -1,0 +1,17 @@
+{
+  "title": "GC Design System Preview",
+  "description": "Development environment for GC Design System components",
+  "url": "http://localhost:8080",
+  "languages": {
+    "en": {
+      "code": "en",
+      "name": "English",
+      "dir": "ltr"
+    },
+    "fr": {
+      "code": "fr", 
+      "name": "Français",
+      "dir": "ltr"
+    }
+  }
+}
