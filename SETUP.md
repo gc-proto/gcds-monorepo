@@ -13,9 +13,19 @@ cd gcds-monorepo
 pnpm install
 ```
 
-### 2. Clone Fork Repositories
-The fork repositories are gitignored and must be cloned locally. This keeps the main repository clean while enabling full development capabilities:
+### 2. Automated Fork Repository Setup
+The fork repositories are gitignored and must be cloned locally. This keeps the main repository clean while enabling full development capabilities.
 
+**Option A: Automated Setup (Recommended)**
+```bash
+# Run the automated setup script
+pnpm setup
+
+# Or alternatively:
+pnpm setup:forks
+```
+
+**Option B: Manual Setup**
 ```bash
 # Navigate to packages directory
 cd packages
@@ -31,6 +41,13 @@ cd ..
 # Install all dependencies and link workspaces
 pnpm install
 ```
+
+The automated setup script will:
+- Clone all three fork repositories
+- Handle existing directories (with confirmation)
+- Install and link all workspace dependencies
+- Verify the setup with a test build
+- Provide clear status messages throughout the process
 
 ### 3. Verify Setup
 ```bash

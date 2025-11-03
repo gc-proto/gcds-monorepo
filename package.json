@@ -9,6 +9,7 @@
     "dev": "pnpm --filter gcds.test.canada.ca dev",
     "serve": "pnpm --filter gcds.test.canada.ca serve",
     "install:all": "pnpm install",
+    "setup": "chmod +x scripts/setup-forks.sh && ./scripts/setup-forks.sh",
     "sync:forks": "echo 'Manual sync required - see GitHub Actions automation'"
   },
   "devDependencies": {
