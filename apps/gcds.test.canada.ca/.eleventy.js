@@ -22,10 +22,10 @@ module.exports = function(eleventyConfig) {
 
   // Collections: english and french
   eleventyConfig.addCollection("english", (collectionApi) => {
-    return collectionApi.getFilteredByGlob("templates/english/**/*.{html,njk,liquid,md}");
+    return collectionApi.getFilteredByGlob("src/templates/english/**/*.{html,njk,liquid,md}");
   });
   eleventyConfig.addCollection("french", (collectionApi) => {
-    return collectionApi.getFilteredByGlob("templates/french/**/*.{html,njk,liquid,md}");
+    return collectionApi.getFilteredByGlob("src/templates/french/**/*.{html,njk,liquid,md}");
   });
 
   function groupByTopic(items, lang) {
@@ -46,11 +46,11 @@ module.exports = function(eleventyConfig) {
   }
 
   eleventyConfig.addCollection("englishTopics", (collectionApi) => {
-    const items = collectionApi.getFilteredByGlob("templates/english/**/*.{html,njk,liquid,md}");
+    const items = collectionApi.getFilteredByGlob("src/templates/english/**/*.{html,njk,liquid,md}");
     return groupByTopic(items, "english");
   });
   eleventyConfig.addCollection("frenchTopics", (collectionApi) => {
-    const items = collectionApi.getFilteredByGlob("templates/french/**/*.{html,njk,liquid,md}");
+    const items = collectionApi.getFilteredByGlob("src/templates/french/**/*.{html,njk,liquid,md}");
     return groupByTopic(items, "french");
   });
 
@@ -71,7 +71,7 @@ module.exports = function(eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "../../packages/gcds-examples/templates",
+      output: "_site",
       includes: "_includes",
       data: "_data"
     },

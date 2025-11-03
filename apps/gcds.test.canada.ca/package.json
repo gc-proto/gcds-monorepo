@@ -8,7 +8,8 @@
     "build": "eleventy",
     "dev": "eleventy --serve --watch",
     "serve": "eleventy --serve",
-    "clean": "rm -rf ../../packages/gcds-examples/templates/english/* ../../packages/gcds-examples/templates/french/*"
+    "clean": "rm -rf _site",
+    "copy-to-examples": "bash ../../scripts/copy-templates-to-examples.sh"
   },
   "dependencies": {
     "@11ty/eleventy": "^2.0.1",
