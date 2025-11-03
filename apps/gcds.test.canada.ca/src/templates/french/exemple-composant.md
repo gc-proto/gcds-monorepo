@@ -1,8 +1,9 @@
 ---
-layout: base.njk
-title: Exemple de composant
+dateModified: 2025-11-01
 lang: fr
+layout: layouts/base.njk
 permalink: /french/exemple-composant.html
+title: Exemple de composant
 ---
 
 # Exemple de composant

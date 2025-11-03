@@ -1,5 +1,6 @@
 ---
-layout: base.njk
+dateModified: 2025-11-01
+layout: layouts/base.njk
 title: Sample Component Example
 lang: en
 permalink: /english/sample-component.html
