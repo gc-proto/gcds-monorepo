@@ -145,23 +145,46 @@ showDefaultBreadcrumbs: false
   </section>
 
 
-  <!-- Featured: single feature -->
+  <!-- About the institution] -->
 <gcds-container size="xl" main-container centered>
   <gcds-grid columns="3" columns-tablet="2" columns-desktop="2fr 1fr" class="mt-400 mb-400">
-    <div class="gc-feature">
-      <h2 class="font-size-h3 mt-0 mb-300 visibility-sr-only">Featured</h2>
-      <gcds-grid class="lg:pt-100 lg:ps-100 lg:mt-400 lg:mb-400 xs:mb-0 hydrated gap-0 position-relative gc-feature-hover" columns="1fr" columns-desktop="1fr 1fr" align-items="start">
-        <div>
-          <img class="img-responsive pe-100"src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="">
-        </div>
-        <div class="lg:mt-300 xs:mb-0 xs:mt-0">
-          <a class="mt-0 font-h5 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">[Feature hyperlink text]</a>
-          <p class="mt-100 font-size-text-small">Brief description of the feature being promoted.</p>
-        </div>
-      </gcds-grid>
+    <div>
+         <h2 class="font-size-h3 mt-0 mb-300">About [Institution]</h2>
+     <!-- Links column -->
+      <ul class="font-family-heading font-bold mb-200 list-unstyled d-grid md:grid-cols-2 gap-x-300 gap-y-200 lg:mt-100">
+        <li>
+          <gcds-link href="#">Mandate</gcds-link>
+        </li>
+        <li>
+          <gcds-link href="#">Organizational structure</gcds-link>
+        </li>
+        <li>
+          <gcds-link href="#">Transparency</gcds-link>
+        </li>
+        <li>
+          <gcds-link href="#">Accessibility</gcds-link>
+        </li>
+        <li>
+          <gcds-link href="#">Job opportunities</gcds-link>
+        </li>
+        <li>
+          <gcds-link href="#">Reports</gcds-link>
+        </li>
+        <li>
+          <gcds-link href="#">Compliance</gcds-link>
+        </li>
+        <li>
+          <gcds-link href="#">Enforcement notifications</gcds-link>
+        </li>
+        <li>
+          <gcds-link href="#">[Institutional link]</gcds-link>
+        </li>
+        <li>More:&nbsp;
+          <gcds-link href="#">About [Institution]</gcds-link>
+        </li>
+      </ul>
     </div>
    <!-- Social media -->
-    <div>
       <section class="mb-400">
         <h2 class="font-size-h3 mt-0 mb-300">On social media</h2>
         <ul class="font-bold font-size-text-small ms-300 d-grid gap-y-200">
@@ -192,23 +215,7 @@ showDefaultBreadcrumbs: false
           </li>
         </ul>
       </section>
-    </div>
 	</gcds-grid>
-
- <gcds-grid columns="2" columns-tablet="1" columns-desktop="auto 1fr" class="mt-400 mb-400">
-      <!-- JM: another use case for responsive typography being impacted by prefixes, if I use font-size-text for the h2 it gets too small in mobile, but is perfect for desktop -->
-    <div class="lg:d-flex lg:align-items-start">
-      <h2 class="font-size-text mt-0 xs:mb-100 lg:mb-0 lg:me-100">From:</h2>
-        <ul class="gc-vertical-bar font-size-text-small font-bold line-text-small mt-0 d-grid gap-y-100 xs:list-disc lg:list-none lg:flex-wrap lg:d-flex lg:ms-0">
-          <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 1</a></li>
-          <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 2</a></li>
-          <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 3</a></li>
-          <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 4</a></li>
-          <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 5</a></li>
-          <li class="font-family-heading"><a class="hover:link-hover link-default" href="#">Department or agency 6</a></li>
-        </ul>
-      </div>
-    </gcds-grid>
 </gcds-container> 
 
 <style>
