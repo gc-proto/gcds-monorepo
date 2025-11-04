@@ -2,12 +2,12 @@
 breadcrumbs:
   - href: "/english/"
     text: "GCDS Examples"
-contentHeader: "Institution landing page"
+contentHeader: "Institutional landing page"
 dateModified: "2025-11-04"
 description: "A simple, clean template demonstrating the topic page structure with common GCDS components."
 permalink: "/english/institutional-landing-page.html"
 layout: "layouts/no-container.njk"
-title: "Topic page template - CSS shortcuts (en)"
+title: "Institutional landing page - CSS shortcuts (en)"
 showDefaultBreadcrumbs: false
 ---
 
@@ -22,6 +22,18 @@ showDefaultBreadcrumbs: false
     </div>
   </gcds-grid>
 </gcds-container>
+
+<!-- Most Requested Section -->
+<section class="pb-100 pt-100" style="background-color: var(--gcds-color-blue-650)">
+  <gcds-container size="xl" main-container centered>
+    <gcds-grid columns="1">
+      <!-- Heading column -->
+      <h2 class="visibility-sr-only">Spotlight on</h2> 
+      <!-- Links column -->
+		  <a class="link-light my-0 mx-0 font-family-heading font-bold" href="#">[Promotion title]</a>
+    </gcds-grid>
+  </gcds-container>
+</section>
 
 <!-- Most Requested Section -->
 <section class="pb-200 pt-300" style="background-color: var(--gcds-color-grayscale-50)">
@@ -161,7 +173,6 @@ showDefaultBreadcrumbs: false
         </ul>
       </section>
     </div>
-    <!-- JM: to optimize space, social media icons would be ideal to switch to two list rows in tablet-->
 	</gcds-grid>
 
  <gcds-grid columns="2" columns-tablet="1" columns-desktop="auto 1fr" class="mt-400 mb-400">
