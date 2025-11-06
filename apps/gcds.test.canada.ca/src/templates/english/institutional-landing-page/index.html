@@ -181,9 +181,9 @@ showDefaultBreadcrumbs: false
             </ul>
         </div>
         <!-- Social media -->
-        <section class="mb-400">
+        <section class="mb-300">
             <h2 class="font-size-h3 mt-0 mb-300">On social media</h2>
-            <ul class="font-bold font-size-text-small ms-300 d-grid gap-y-200">
+            <ul class="font-bold font-size-text-small ms-300 d-grid gap-y-200 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1">
                 <li class="gc-social-media-item facebook">
                     <a href="#" class="py-100 pe-100 facebook hover:link-underline hover:link-hover focus:link-light link-no-underline link-default position-relative ps-600">
                         <gcds-sr-only>Facebook: </gcds-sr-only>FacebookPageName&nbsp;<gcds-icon name="external"></gcds-icon>
@@ -212,35 +212,35 @@ showDefaultBreadcrumbs: false
             </ul>
         </section>
     </gcds-grid>
-    <h2 class="font-size-h3 mt-0 mb-300">Ministers</h2>
-    <gcds-grid columns="1" columns-tablet="1" columns-desktop="1fr 1fr">
+    <h2 class="font-size-h3 mt-0 mb-0">Ministers</h2>
+    <gcds-grid columns="1" columns-tablet="1" columns-desktop="1fr 1fr" class="gap-400">
       
-      <!-- First minister card -->
-      <div class="gc-minister">
-        <gcds-grid columns="1" columns-tablet="auto 1fr" columns-desktop="auto 1fr" class="lg:pt-100 lg:ps-100 xs:mb-0 gap-300 position-relative gc-minister-hover" align-items="start">
-          <div>
-            <img class="img-responsive pe-100" src="https://dummyimage.com/200x200/000000/FFFFFF.png" alt="" />
-          </div>
-          <div class="lg:mt-300 xs:mb-0 xs:mt-0">
-            <a class="mt-0 font-h6 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">The Honourable [Minister name]</a>
-            <p class="mt-100 font-size-text-small">[Official title]</p>
-          </div>
-        </gcds-grid>
-      </div>
+    <!-- First minister card -->
+    <div class="gc-minister">
+      <gcds-grid columns="1" columns-tablet="auto 1fr" columns-desktop="auto 1fr" class="pt-100 px-100 md:mt-300 md:mb-300 xs:mb-0 position-relative gc-minister-hover" align-items="center">
+        <div>
+          <img class="img-responsive pe-100" src="https://dummyimage.com/200x200/000000/FFFFFF.png" alt="" />
+        </div>
+        <div class="lg:mt-300 xs:mb-0 xs:mt-0">
+          <a class="mt-0 font-h6 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">The Honourable [Minister name]</a>
+          <p class="mt-100 font-size-text-small">[Official title]</p>
+        </div>
+      </gcds-grid>
+    </div>
 
-      <!-- Second minister card -->
-      <div class="gc-minister">
-        <gcds-grid columns="1" columns-tablet="auto 1fr" columns-desktop="auto 1fr" class="lg:pt-100 lg:ps-100 xs:mb-0 gap-300 position-relative gc-minister-hover" align-items="start">
-          <div>
-            <img class="img-responsive pe-100" src="https://dummyimage.com/200x200/000000/FFFFFF.png" alt="" />
-          </div>
-          <div class="lg:mt-300 xs:mb-0 xs:mt-0">
-            <a class="mt-0 font-h6 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">The Honourable [Minister name]</a>
-            <p class="mt-100 font-size-text-small">[Official title]</p>
-          </div>
-        </gcds-grid>
-      </div>
-    </gcds-grid>
+    <!-- Second minister card -->
+    <div class="gc-minister">
+      <gcds-grid columns="1" columns-tablet="auto 1fr" columns-desktop="auto 1fr" class="pt-100 px-100 md:mt-300 md:mb-300 xs:mb-0 position-relative gc-minister-hover" align-items="center">
+        <div>
+          <img class="img-responsive pe-100" src="https://dummyimage.com/200x200/000000/FFFFFF.png" alt="" />
+        </div>
+        <div class="lg:mt-300 xs:mb-0 xs:mt-0">
+          <a class="mt-0 font-h6 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">The Honourable [Minister name]</a>
+          <p class="mt-100 font-size-text-small">[Official title]</p>
+        </div>
+      </gcds-grid>
+    </div>
+  </gcds-grid>
 
     <!-- News feed -->
 
