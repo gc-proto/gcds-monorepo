@@ -1,12 +1,14 @@
 ---
 breadcrumbs:
   - href: "/fr/"
-    text: "Exemples du Système de Conception GC"
+    text: "Aperçu du développement GCDS"
 contentHeader: "Galerie par dossier"
 dateModified: 2025-08-18
+layout: layouts/base.njk
+permalink: /fr/galerie/
 title: "Galerie francophone par dossier"
 ---
-<p class="gcds-text">Groupé par le premier dossier sous <code>templates/french/</code>.</p>
+<p class="gcds-text">Groupé par le premier dossier sous <code>src/fr/templates</code> et <code>src/fr/components</code>.</p>
 
 {% for group in collections.frenchTopics %}
   {% if not group.topic.endsWith('.njk') %}
@@ -15,7 +17,7 @@ title: "Galerie francophone par dossier"
     
     <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
       {% for page in group.items %}
-        {% if page.url and page.fileSlug and page.url != "/fr/" and (page.inputPath.endsWith('.html') or page.inputPath.endsWith('.md')) %}
+        {% if page.url and page.fileSlug and page.url != "/fr/" and (page.inputPath.includes('/templates/') or page.inputPath.includes('/components/')) and (page.inputPath.endsWith('.html') or page.inputPath.endsWith('.md')) %}
           <gcds-card 
             card-title="{{ page.data.title or page.fileSlug | replace("-", " ") | capitalize }}"
             href="{{ page.url }}"
@@ -24,7 +26,7 @@ title: "Galerie francophone par dossier"
             {% if page.data.description %}
               <p slot="content">{{ page.data.description }}</p>
             {% else %}
-              <p slot="content">Modèle : {{ page.fileSlug }}</p>
+              <p slot="content">{{ page.fileSlug }}</p>
             {% endif %}
           </gcds-card>
         {% endif %}

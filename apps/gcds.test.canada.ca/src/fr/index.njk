@@ -1,0 +1,50 @@
+---
+breadcrumbs: true
+contentHeader: "Systeme de Conception GC Aperçu de développement"
+dateModified: 2025-08-18
+description: "Une collection d'exemples de modèles."
+layout: layouts/base.njk
+title: "Systeme de Conception GC Aperçu de développement"
+---
+
+<gcds-text>Ce environnement de développement vous permet de&nbsp;:</gcds-text>
+
+<ul class="list-disc">
+  <li>Créer et tester des exemples de composants du Système de Conception GC</li>
+  <li>Générer des artefacts HTML plats pour une contribution en amont</li>
+  <li>Prévisualiser les composants localement avant la soumission</li>
+</ul>
+
+<gcds-heading tag="h2">Démarrage rapide</gcds-heading>
+
+<ol class="list-decimal">
+  <li>Créer des modèles <code>.html</code> dans <code>src/fr/templates/</code> ou <code>src/en/templates/</code></li>
+  <li>Créer des exemples de composants <code>.html</code> dans <code>src/fr/components/</code> ou <code>src/en/components/</code></li>
+  <li>Utiliser des fichiers <code>.njk</code> et <code>.md</code> pour la navigation et les pages de développement (ne seront pas copiés dans les packages)</li>
+  <li>Exécuter <kbd>npm run build</kbd> pour générer des artefacts HTML dans <code>_site/</code></li>
+  <li>Exécuter <kbd>npm run copy-to-examples</kbd> pour copier uniquement les artefacts <code>.html</code> vers les packages appropriés</li>
+</ol>
+
+<gcds-heading tag="h2">Exemples disponibles</gcds-heading>
+
+<gcds-text class="mt-400">Index généré automatiquement du contenu francophone sous <code>src/fr/</code>.</gcds-text>
+
+<gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
+{% for page in collections.french %}
+  {% if page.url and page.fileSlug and page.url != "/fr/" and (page.inputPath.includes('/templates/') or page.inputPath.includes('/components/')) and (page.inputPath.endsWith('.html') or page.inputPath.endsWith('.md')) %}
+    <gcds-card 
+      card-title="{{ page.data.title or page.fileSlug | replace("-", " ") | capitalize }}"
+      href="{{ page.url }}"
+      type="link"
+    >
+      {% if page.data.description %}
+        <p slot="content">{{ page.data.description }}</p>
+      {% else %}
+        <p slot="content">{{ page.fileSlug }}</p>
+      {% endif %}
+    </gcds-card>
+  {% endif %}
+{% endfor %}
+</gcds-grid>
+
+<p class="mt-600"><gcds-link href="/fr/galerie/">Voir la galerie par dossier</gcds-link></p>

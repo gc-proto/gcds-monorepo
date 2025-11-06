@@ -18,25 +18,20 @@ title: "GC Design System Development Preview"
 <gcds-heading tag="h2">Quick Start</gcds-heading>
 
 <ol class="list-decimal">
-  <li>Create <code>.html</code> templates in <code>src/templates/english/</code> or <code>src/templates/french/</code></li>
-  <li>Use <code>.njk</code> and <code>.md</code> files for navigation and development pages (won't be copied to gcds-examples)</li>
+  <li>Create <code>.html</code> templates in <code>src/en/templates/</code> or <code>src/fr/templates/</code></li>
+  <li>Create <code>.html</code> component examples in <code>src/en/components/</code> or <code>src/fr/components/</code></li>
+  <li>Use <code>.njk</code> and <code>.md</code> files for navigation and development pages (won't be copied to packages)</li>
   <li>Run <kbd>npm run build</kbd> to generate HTML artifacts in <code>_site/</code></li>
-  <li>Run <kbd>npm run copy-to-examples</kbd> to copy only <code>.html</code> artifacts to <code>packages/gcds-examples/templates/</code></li>
+  <li>Run <kbd>npm run copy-to-examples</kbd> to copy only <code>.html</code> artifacts to the appropriate packages</li>
 </ol>
 
 <gcds-heading tag="h2">Available Examples</gcds-heading>
 
-<gcds-text class="mt-400 mb-0">Auto-generated index of English components discovered under <code>components/en/</code></gcds-text>
-<ul class="list-disc">
-  <li><a href="/english/sample-component.html">Sample Component Example</a></li>
-</ul>
-
-<gcds-heading tag="h2">All English Templates</gcds-heading>
-<gcds-text class="mt-400">Auto-generated index of English templates discovered under <code>templates/en/</code>.</gcds-text>
+<gcds-text class="mt-400">Auto-generated index of all English content discovered under <code>src/en/</code>.</gcds-text>
 
 <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr 1fr" gap="400">
 {% for page in collections.english %}
-  {% if page.url and page.fileSlug and page.url != "/en/" and (page.inputPath.endsWith('.html') or page.inputPath.endsWith('.md')) %}
+  {% if page.url and page.fileSlug and page.url != "/en/" and (page.inputPath.includes('/templates/') or page.inputPath.includes('/components/')) and (page.inputPath.endsWith('.html') or page.inputPath.endsWith('.md')) %}
     <gcds-card 
       card-title="{{ page.data.title or page.fileSlug | replace("-", " ") | capitalize }}"
       href="{{ page.url }}"
@@ -45,7 +40,7 @@ title: "GC Design System Development Preview"
       {% if page.data.description %}
         <p slot="content">{{ page.data.description }}</p>
       {% else %}
-        <p slot="content">Template: {{ page.fileSlug }}</p>
+        <p slot="content">{{ page.fileSlug }}</p>
       {% endif %}
     </gcds-card>
   {% endif %}

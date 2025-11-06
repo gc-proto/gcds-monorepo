@@ -22,20 +22,21 @@ module.exports = function(eleventyConfig) {
 
   // Collections: english and french
   eleventyConfig.addCollection("english", (collectionApi) => {
-    return collectionApi.getFilteredByGlob("src/templates/english/**/*.{html,njk,liquid,md}");
+    return collectionApi.getFilteredByGlob("src/en/**/*.{html,njk,liquid,md}");
   });
   eleventyConfig.addCollection("french", (collectionApi) => {
-    return collectionApi.getFilteredByGlob("src/templates/french/**/*.{html,njk,liquid,md}");
+    return collectionApi.getFilteredByGlob("src/fr/**/*.{html,njk,liquid,md}");
   });
 
   function groupByTopic(items, lang) {
     const groups = new Map();
     for (const item of items) {
       const input = item.inputPath || (item.data && item.data.page && item.data.page.inputPath) || "";
-      // Expect paths like ./templates/english/<topic>/...
+      // Expect paths like ./src/en/templates/<topic>/... or ./src/en/components/<topic>/...
       const parts = input.replace(/\\\\/g, "/").split("/");
       const langIdx = parts.indexOf(lang);
-      const topic = langIdx > -1 && parts.length > langIdx + 1 ? parts[langIdx + 1] : "misc";
+      // Get the folder after templates or components (the topic)
+      const topic = langIdx > -1 && parts.length > langIdx + 2 ? parts[langIdx + 2] : "misc";
       if (!groups.has(topic)) groups.set(topic, []);
       groups.get(topic).push(item);
     }
@@ -46,12 +47,12 @@ module.exports = function(eleventyConfig) {
   }
 
   eleventyConfig.addCollection("englishTopics", (collectionApi) => {
-    const items = collectionApi.getFilteredByGlob("src/templates/english/**/*.{html,njk,liquid,md}");
-    return groupByTopic(items, "english");
+    const items = collectionApi.getFilteredByGlob("src/en/**/*.{html,njk,liquid,md}");
+    return groupByTopic(items, "en");
   });
   eleventyConfig.addCollection("frenchTopics", (collectionApi) => {
-    const items = collectionApi.getFilteredByGlob("src/templates/french/**/*.{html,njk,liquid,md}");
-    return groupByTopic(items, "french");
+    const items = collectionApi.getFilteredByGlob("src/fr/**/*.{html,njk,liquid,md}");
+    return groupByTopic(items, "fr");
   });
 
   // Filter to build language switch link using page.data.langAltUrl
