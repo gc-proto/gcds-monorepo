@@ -13,13 +13,14 @@ showDefaultBreadcrumbs: false
 
 <gcds-container size="xl" tag="section" main-container centered class="gc-bkg-img position-relative overflow-hidden">
     <gcds-grid columns="1" columns-tablet="1fr" columns-desktop="1fr 1fr">
-        <div class="gc-intro-cover pt-400 pb-400 pe-400 mb-0">
+        <div class="gc-intro pt-400 pb-400 pe-400 mb-0">
             <gcds-heading tag="h1" character-limit="false">{{ contentHeader }}</gcds-heading>
             <p>The introduction block pattern introduces the content of a landing page.</p>
             <gcds-button class="me-300 hydrated" button-role="start">Supertask button</gcds-button>
         </div>
     </gcds-grid>
 </gcds-container>
+<!-- JM: needs fine tuning, but this solves the issue of departments not having a full-size image ready for proper contrast and instead use a gradient -->
 
 <!-- Featured link -->
 <div class="gc-featured-link pb-200 pt-200">
@@ -181,7 +182,7 @@ showDefaultBreadcrumbs: false
             </ul>
         </div>
         <!-- Social media -->
-        <section class="mb-300">
+        <section class="mb-200">
             <h2 class="font-size-h3 mt-0 mb-300">On social media</h2>
             <ul class="font-bold font-size-text-small ms-300 d-grid gap-y-200 md:grid-cols-2 lg:grid-cols-1 sm:grid-cols-1">
                 <li class="gc-social-media-item facebook">
@@ -212,35 +213,38 @@ showDefaultBreadcrumbs: false
             </ul>
         </section>
     </gcds-grid>
-    <h2 class="font-size-h3 mt-0 mb-0">Ministers</h2>
-    <gcds-grid columns="1" columns-tablet="1" columns-desktop="1fr 1fr" class="gap-400">
-      
-    <!-- First minister card -->
-    <div class="gc-minister">
-      <gcds-grid columns="1" columns-tablet="auto 1fr" columns-desktop="auto 1fr" class="pt-100 px-100 md:mt-300 md:mb-300 xs:mb-0 position-relative gc-minister-hover" align-items="center">
-        <div>
-          <img class="img-responsive pe-100" src="https://dummyimage.com/200x200/000000/FFFFFF.png" alt="" />
-        </div>
-        <div class="lg:mt-300 xs:mb-0 xs:mt-0">
-          <a class="mt-0 font-h6 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">The Honourable [Minister name]</a>
-          <p class="mt-100 font-size-text-small">[Official title]</p>
-        </div>
-      </gcds-grid>
-    </div>
+<h2 class="font-size-h3 mt-0 md:mb-0">Ministers</h2>
+<!-- Lots of variants needed here -->
+<gcds-grid columns="1" columns-tablet="1" columns-desktop="1fr 1fr" gap="300">
+    
+  <!-- First minister card -->
+  <div>
+    <gcds-grid columns="1" columns-tablet="auto 1fr" columns-desktop="auto 1fr" gap="300" class="pt-100 px-100 md:mt-300 xs:mb-0 position-relative gc-minister-hover gc-minister" align-items="center">
+      <!-- Image -->
+      <div>
+        <img class="img-responsive" src="https://dummyimage.com/200x200/000000/FFFFFF.png" alt="" />
+      </div>
+      <!-- Text content wrapper -->
+      <div>
+         <a class="mt-0 font-h6 gc-stretched-link hover:link-hover focus:link-light link-default d-block" href="#">The Honourable [Minister name]</a>
+        <p class="mt-100 font-size-text-small mb-0">[Official title]</p>
+      </div>
+    </gcds-grid>
+  </div>
 
-    <!-- Second minister card -->
-    <div class="gc-minister">
-      <gcds-grid columns="1" columns-tablet="auto 1fr" columns-desktop="auto 1fr" class="pt-100 px-100 md:mt-300 md:mb-300 xs:mb-0 position-relative gc-minister-hover" align-items="center">
-        <div>
-          <img class="img-responsive pe-100" src="https://dummyimage.com/200x200/000000/FFFFFF.png" alt="" />
-        </div>
-        <div class="lg:mt-300 xs:mb-0 xs:mt-0">
-          <a class="mt-0 font-h6 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">The Honourable [Minister name]</a>
-          <p class="mt-100 font-size-text-small">[Official title]</p>
-        </div>
-      </gcds-grid>
-    </div>
-  </gcds-grid>
+  <!-- Second minister card -->
+  <div>
+    <gcds-grid columns="1" columns-tablet="auto 1fr" columns-desktop="auto 1fr" gap="300" class="pt-100 px-100 md:mt-300 xs:mb-0 position-relative gc-minister gc-minister-hover" align-items="center">
+      <div>
+        <img class="img-responsive" src="https://dummyimage.com/200x200/000000/FFFFFF.png" alt="" />
+      </div>
+      <div>
+        <a class="mt-0 font-h6 gc-stretched-link hover:link-hover focus:link-light link-default d-block" href="#">The Honourable [Minister name]</a>
+        <p class="mt-100 font-size-text-small mb-0">[Official title]</p>
+      </div>
+    </gcds-grid>
+  </div>
+</gcds-grid>
 
     <!-- News feed -->
 
@@ -248,9 +252,9 @@ showDefaultBreadcrumbs: false
 </gcds-container>
 
 <style>
-    /* featured link */
+    /* featured link, to be updated when new colours launch */
     .gc-featured-link {
-        background-color: rgb(from var(--gcds-color-blue-650) r g b / 0.9);
+        background-color: var(--gcds-color-blue-500);
     }
 
     /* ILP background image */
@@ -295,15 +299,25 @@ showDefaultBreadcrumbs: false
             display: none;
         }
     }
-    .gc-intro-cover {
+
+    /* other colours permitted from colour chart, white is default */
+    .gc-intro {
         background-color: var(--gcds-bg-white);
-        /* margin-left: -100vw;
-    padding-left: 100vw; */
     }
 
-    /* gc-feature */
+  /* use for full width img, or to add full colour */
+    .gc-intro-cover {
+            margin-left: -100vw;
+            padding-left: 100vw;
+    }
+
+    .gc-bkg-img-cover::before {
+        background-size: cover;
+    }
+
+    /* hover card style */
     .gc-feature .gc-feature-hover:hover,
-    .gc-minister .gc-minister-hover:hover {
+    .gc-minister.gc-minister-hover:hover {
         background-color: var(--gcds-card-background-color);
         box-shadow: var(--gcds-card-box-shadow);
         overflow: hidden;
@@ -357,4 +371,21 @@ showDefaultBreadcrumbs: false
     .gc-social-media-item.linkedin a::before {
         background-image: url("/assets/linkedin.svg");
     }
+
+  @media (max-width: 767px) {
+    .gc-minister {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .gc-minister > div:first-child {
+      order: 2;
+    }
+    
+    .gc-minister > div:last-child {
+      order: 1;
+    }
+  }
+  /* Shadow DOM is stopping me from styling for the title being below */
+
 </style>
