@@ -215,7 +215,7 @@ showDefaultBreadcrumbs: false
     </gcds-grid>
 <h2 class="font-size-h3 mt-0 md:mb-0">Ministers</h2>
 <!-- Lots of variants needed here -->
-<gcds-grid columns="1" columns-tablet="1" columns-desktop="1fr 1fr" gap="300">
+<gcds-grid columns="1" columns-tablet="1" columns-desktop="1fr 1fr" gap="300" class="mb-300">
     
   <!-- First minister card -->
   <div>
@@ -246,15 +246,55 @@ showDefaultBreadcrumbs: false
   </div>
 </gcds-grid>
 
-    <!-- News feed -->
-
-    <!-- Features 2 blocks -->
+<gcds-grid columns="1" columns-tablet="1" columns-desktop="1fr 2fr" class="mt-600">
+  <!-- News section -->
+  <div>
+    <h2 class="font-size-h3 mt-0 mb-300">News</h2>
+    <ul class="list-unstyled">
+      <li class="mb-200">
+        <gcds-link class="font-bold" href="#">[News title]</gcds-link><br />
+        <small class="feeds-date"><time>2021-03-22 08:19</time></small>
+      </li>
+      <li class="mb-200">
+        <gcds-link class="font-bold" href="#">[News title]</gcds-link><br />
+        <small class="feeds-date"><time>2021-03-21 08:20</time></small>
+      </li>
+      <li class="mb-200">
+        <gcds-link class="font-bold" href="#">[News title]</gcds-link><br />
+        <small class="feeds-date"><time>2021-03-20 09:15</time></small>
+      </li>
+    </ul>
+    <p class="font-size-text-small">More: <gcds-link href="#">[Institution] news</gcds-link></p>
+  </div>
+  
+  <!-- Features section with nested grid -->
+  <div>
+    <h2 class="font-size-h3 mt-0 mb-300">Features</h2>
+    <gcds-grid columns="1" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr" gap="300">
+      <!-- Feature 1 -->
+      <div class="pt-100 px-100 position-relative gc-feature-card gc-feature-hover">
+        <img class="img-responsive mb-200" src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="">
+        <a class="mt-0 font-h5 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">[Feature hyperlink text]</a>
+        <p class="mt-100 font-size-text-small mb-0">Brief description of the feature being promoted.</p>
+      </div>
+      
+      <!-- Feature 2 -->
+      <div class="pt-100 px-100 position-relative gc-feature-card gc-feature-hover">
+        <img class="img-responsive mb-200" src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="">
+        <a class="mt-0 font-h5 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">[Feature hyperlink text]</a>
+        <p class="mt-100 font-size-text-small mb-0">Brief description of the feature being promoted.</p>
+      </div>
+    </gcds-grid>
+  </div>
+  
+</gcds-grid>
 </gcds-container>
 
 <style>
     /* featured link, to be updated when new colours launch */
     .gc-featured-link {
-        background-color: var(--gcds-color-blue-500);
+        /* background-color: var(--gcds-color-blue-500); */
+        background-color: #59799B;
     }
 
     /* ILP background image */
@@ -386,6 +426,6 @@ showDefaultBreadcrumbs: false
       order: 1;
     }
   }
-  /* Shadow DOM is stopping me from styling for the title being below */
+  /* Shadow DOM is stopping me from styling for the title being below the image on mobile, or fixing the giant gap if I reorder the HTML */
 
 </style>
