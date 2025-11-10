@@ -268,19 +268,19 @@ showDefaultBreadcrumbs: false
   </div>
   
   <!-- Features section with nested grid -->
-  <div>
+  <div class="gc-feature mb-300">
     <h2 class="font-size-h3 mt-0 mb-300">Features</h2>
     <gcds-grid columns="1" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr" gap="300">
       <!-- Feature 1 -->
       <div class="pt-100 px-100 position-relative gc-feature-card gc-feature-hover">
-        <img class="img-responsive mb-200" src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="">
+        <img class="img-responsive img-full mb-200" src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="">
         <a class="mt-0 font-h5 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">[Feature hyperlink text]</a>
         <p class="mt-100 font-size-text-small mb-0">Brief description of the feature being promoted.</p>
       </div>
       
       <!-- Feature 2 -->
       <div class="pt-100 px-100 position-relative gc-feature-card gc-feature-hover">
-        <img class="img-responsive mb-200" src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="">
+        <img class="img-responsive img-full mb-200" src="https://dummyimage.com/360x203/000000/FFFFFF.png" alt="">
         <a class="mt-0 font-h5 gc-stretched-link hover:link-hover focus:link-light link-default" href="#">[Feature hyperlink text]</a>
         <p class="mt-100 font-size-text-small mb-0">Brief description of the feature being promoted.</p>
       </div>
@@ -356,9 +356,21 @@ showDefaultBreadcrumbs: false
     }
 
     /* hover card style */
+
+    .gc-feature-card {
+          background-color: var(--gcds-card-background-color);
+          box-shadow: var(--gcds-card-box-shadow);
+          color: var(--gcds-card-color);
+          display: block;
+          height: 100%;
+          max-width: var(--gcds-card-max-width);
+          overflow: hidden;
+          padding: var(--gcds-spacing-200);
+          position: relative;
+    }
     .gc-feature .gc-feature-hover:hover,
     .gc-minister.gc-minister-hover:hover {
-        background-color: var(--gcds-card-background-color);
+        background-color: var(--gcds-bg-light);
         box-shadow: var(--gcds-card-box-shadow);
         overflow: hidden;
         position: relative;
