@@ -1,0 +1,218 @@
+{
+  "contentHeader": {
+    "en": "Institutional landing page",
+    "fr": "Page d'accueil institutionnelle"
+  },
+  "introText": {
+    "en": "The introduction block pattern introduces the content of a landing page.",
+    "fr": "La configuration de conception du bloc d'introduction introduit le contenu d'une page de destination."
+  },
+  "superTaskButton": {
+    "en": "Supertask button",
+    "fr": "Bouton de super-tâche"
+  },
+  "featuredLink": {
+    "srHeading": {
+      "en": "Spotlight on",
+      "fr": "Titre de la promotion"
+    },
+    "title": {
+      "en": "[Promotion title]",
+      "fr": "[Promotion title]"
+    }
+  },
+  "mostRequested": {
+    "heading": {
+      "en": "Most requested",
+      "fr": "En demande"
+    },
+    "links": {
+      "en": [
+        "[Top task hyperlink with a very long task name that spans over two lines 1]",
+        "[Top task hyperlink 2]",
+        "[Top task hyperlink 3]",
+        "[Top task hyperlink 4]",
+        "[Top task hyperlink 5]",
+        "[Top task hyperlink 6]"
+      ],
+      "fr": [
+        "[Lien vers une tâche principale avec un nom de tâche très long qui s'étend sur deux lignes 1]",
+        "[Lien vers une tâche principale 2]",
+        "[Lien vers une tâche principale 3]",
+        "[Lien vers une tâche principale 4]",
+        "[Lien vers une tâche principale 5]",
+        "[Lien vers une tâche principale 6]"
+      ]
+    }
+  },
+  "servicesInfo": {
+    "heading": {
+      "en": "Services and information",
+      "fr": "Services et informations"
+    },
+    "linkText": {
+      "en": "[Hyperlink text]",
+      "fr": "[Texte de l'hyperlien]"
+    },
+    "description": {
+      "en": "Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to",
+      "fr": "Utiliser des verbes d'action, ou inscrivez simplement des mots-clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée"
+    }
+  },
+  "contact": {
+    "heading": {
+      "en": "Contact us",
+      "fr": "Coordonnées"
+    },
+    "links": {
+      "en": [
+        "Contact [Institution]",
+        "[Top contact task 2]",
+        "[Top contact task 3]"
+      ],
+      "fr": [
+        "Communiquer avec [institution]",
+        "[Tâche de contact 2]",
+        "[Tâche de contact 3]"
+      ]
+    }
+  },
+  "about": {
+    "heading": {
+      "en": "About [Institution]",
+      "fr": "À propos de [institution]"
+    },
+    "links": {
+      "en": [
+        "Mandate",
+        "Organizational structure",
+        "Transparency",
+        "Accessibility",
+        "Job opportunities",
+        "Reports",
+        "Compliance",
+        "Enforcement notifications",
+        "[Institutional link]"
+      ],
+      "fr": [
+        "Mandat",
+        "Structure organisationnelle",
+        "Transparence",
+        "Accessibilité",
+        "Possibilités d'emploi",
+        "Rapports",
+        "Observations",
+        "Avis de mesure d'exécution",
+        "[Lien institutionnel]"
+      ]
+    },
+    "more": {
+      "en": "More:",
+      "fr": "More:"
+    },
+    "moreLink": {
+      "en": "About [Institution]",
+      "fr": "Au sujet de [institution]"
+    }
+  },
+  "socialMedia": {
+    "heading": {
+      "en": "On social media",
+      "fr": "Dans les médias sociaux"
+    },
+    "facebook": {
+      "en": "Facebook:",
+      "fr": "Facebook:"
+    },
+    "facebookName": {
+      "en": "FacebookPageName",
+      "fr": "NomPageFacebook"
+    },
+    "x": {
+      "en": "X:",
+      "fr": "X:"
+    },
+    "xAccount": {
+      "en": "@XAccount",
+      "fr": "@CompteX"
+    },
+    "youtube": {
+      "en": "YouTube:",
+      "fr": "YouTube:"
+    },
+    "youtubeName": {
+      "en": "YouTubeName",
+      "fr": "NomYouTube"
+    },
+    "instagram": {
+      "en": "Instagram:",
+      "fr": "Instagram:"
+    },
+    "instagramName": {
+      "en": "InstagramName",
+      "fr": "NomInstagram"
+    },
+    "linkedin": {
+      "en": "LinkedIn:",
+      "fr": "LinkedIn:"
+    },
+    "linkedinName": {
+      "en": "LinkedInName",
+      "fr": "NomLinkedIn"
+    }
+  },
+  "ministers": {
+    "heading": {
+      "en": "Ministers",
+      "fr": "Ministre(s)"
+    },
+    "honourable": {
+      "en": "The Honourable [Minister name]",
+      "fr": "L'honorable [prénom et nom de famille]"
+    },
+    "title": {
+      "en": "[Official title]",
+      "fr": "[Titre officiel]"
+    }
+  },
+  "news": {
+    "heading": {
+      "en": "News",
+      "fr": "Nouvelles"
+    },
+    "titles": {
+      "en": [
+        "[News title]",
+        "[News title]",
+        "[News title]"
+      ],
+      "fr": [
+        "[Titre de nouvelle]",
+        "[Titre de nouvelle]",
+        "[Titre de nouvelle]"
+      ]
+    },
+    "more": {
+      "en": "More:",
+      "fr": "Plus :"
+    },
+    "moreLink": {
+      "en": "[Institution] news",
+      "fr": "nouvelles de [institution]"
+    }
+  },
+  "features": {
+    "heading": {
+      "en": "Features",
+      "fr": "En vedette"
+    },
+    "linkText": {
+      "en": "[Feature hyperlink text]",
+      "fr": "[Lien vers l'élément en vedette]"
+    },
+    "description": {
+      "en": "Brief description of the feature being promoted.",
+      "fr": "Brève description de l'élément en vedette."
+    }
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "contentHeader": {
+    "en": "Topic page template",
+    "fr": "Modèle de page de sujet"
+  },
+  "introText": {
+    "en": "The introduction block pattern introduces the content of a topic page.",
+    "fr": "Le modèle de bloc d'introduction présente le contenu d'une page de sujet."
+  },
+  "mostRequested": {
+    "heading": {
+      "en": "Most requested",
+      "fr": "En demande"
+    },
+    "links": {
+      "en": [
+        "[Top task hyperlink with a very long task name that spans over two lines 1]",
+        "[Top task hyperlink 2]",
+        "[Top task hyperlink 3]",
+        "[Top task hyperlink 4]",
+        "[Top task hyperlink 5]",
+        "[Top task hyperlink 6]"
+      ],
+      "fr": [
+        "[Lien vers une tâche principale avec un nom de tâche très long qui s'étend sur deux lignes 1]",
+        "[Lien vers une tâche principale 2]",
+        "[Lien vers une tâche principale 3]",
+        "[Lien vers une tâche principale 4]",
+        "[Lien vers une tâche principale 5]",
+        "[Lien vers une tâche principale 6]"
+      ]
+    }
+  },
+  "servicesInfo": {
+    "heading": {
+      "en": "Services and information",
+      "fr": "Services et information"
+    },
+    "linkText": {
+      "en": "[Hyperlink text]",
+      "fr": "[Texte de l'hyperlien]"
+    },
+    "description": {
+      "en": "Use action verbs, or simply list keywords to summarize the information or tasks that can be accomplished on the page it links to",
+      "fr": "Utilisez des verbes d'action, ou inscrivez simplement des mots-clés pour résumer les renseignements ou les tâches qui peuvent être accomplies sur la page liée"
+    }
+  },
+  "featured": {
+    "heading": {
+      "en": "Featured",
+      "fr": "En vedette"
+    },
+    "linkText": {
+      "en": "[Feature hyperlink text]",
+      "fr": "[Lien vers de l'élément en vedette]"
+    },
+    "description": {
+      "en": "Brief description of the feature being promoted.",
+      "fr": "Brève description de l'élément en vedette."
+    }
+  },
+  "socialMedia": {
+    "heading": {
+      "en": "On social media",
+      "fr": "Dans les médias sociaux"
+    },
+    "facebook": {
+      "en": "Facebook: ",
+      "fr": "Facebook: "
+    },
+    "facebookName": {
+      "en": "FacebookPageName",
+      "fr": "NomPageFacebook"
+    },
+    "x": {
+      "en": "X: ",
+      "fr": "X: "
+    },
+    "xAccount": {
+      "en": "@XAccount",
+      "fr": "@CompteX"
+    },
+    "youtube": {
+      "en": "YouTube: ",
+      "fr": "YouTube: "
+    },
+    "youtubeName": {
+      "en": "YouTubeName",
+      "fr": "NomChaîneYouTube"
+    },
+    "instagram": {
+      "en": "Instagram: ",
+      "fr": "Instagram: "
+    },
+    "instagramName": {
+      "en": "InstagramName",
+      "fr": "NomInstagram"
+    },
+    "linkedin": {
+      "en": "LinkedIn: ",
+      "fr": "LinkedIn: "
+    },
+    "linkedinName": {
+      "en": "LinkedInName",
+      "fr": "NomLinkedIn"
+    }
+  },
+  "from": {
+    "heading": {
+      "en": "From:",
+      "fr": "De :"
+    },
+    "departments": {
+      "en": [
+        "Department or agency 1",
+        "Department or agency 2",
+        "Department or agency 3",
+        "Department or agency 4",
+        "Department or agency 5",
+        "Department or agency 6"
+      ],
+      "fr": [
+        "Ministère ou agence 1",
+        "Ministère ou agence 2",
+        "Ministère ou agence 3",
+        "Ministère ou agence 4",
+        "Ministère ou agence 5",
+        "Ministère ou agence 6"
+      ]
+    }
+  }
+}

@@ -55,6 +55,13 @@ module.exports = function(eleventyConfig) {
     return groupByTopic(items, "fr");
   });
 
+  // Add global data for locales with shorter alias - merge all locale files
+  eleventyConfig.addGlobalData("t", () => {
+    const institutionalLandingPage = require("./src/_data/locales/institutionalLandingPage.json");
+    const topicPage = require("./src/_data/locales/topicPage.json");
+    return { ...institutionalLandingPage, ...topicPage };
+  });
+
   // Filter to build language switch link using page.data.langAltUrl
   eleventyConfig.addFilter("langSwitchHref", (page) => {
     if (page && page.data) {
