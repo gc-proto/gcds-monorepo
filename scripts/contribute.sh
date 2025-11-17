@@ -7,10 +7,16 @@
 
 set -e  # Exit on error
 
-SOURCE_DIR="apps/gcds.test.canada.ca/src"
-BUILD_DIR="apps/gcds.test.canada.ca/_site"
-EXAMPLES_DEST="packages/gcds-examples"
-COMPONENTS_DEST="packages/gcds-components"
+# Get the directory where the script is located
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Get the monorepo root (parent of scripts/)
+MONOREPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
+
+# Set paths relative to monorepo root
+SOURCE_DIR="${MONOREPO_ROOT}/apps/gcds.test.canada.ca/src"
+BUILD_DIR="${MONOREPO_ROOT}/apps/gcds.test.canada.ca/_site"
+EXAMPLES_DEST="${MONOREPO_ROOT}/packages/gcds-examples"
+COMPONENTS_DEST="${MONOREPO_ROOT}/packages/gcds-components"
 
 # Colors for output
 RED='\033[0;31m'
@@ -32,38 +38,36 @@ echo "Copying .html files to appropriate packages..."
 mkdir -p "${EXAMPLES_DEST}/templates/english"
 mkdir -p "${EXAMPLES_DEST}/templates/french"
 
-# Copy templates: en/templates -> gcds-examples/templates/english
-if [ -d "${SOURCE_DIR}/en/templates" ]; then
-  while IFS= read -r source_file; do
-    rel_path="${source_file#${SOURCE_DIR}/en/templates/}"
-    built_file="${BUILD_DIR}/en/templates/${rel_path}"
-    dest_file="${EXAMPLES_DEST}/templates/english/${rel_path}"
-    
-    if [ -f "${built_file}" ]; then
-      dest_dir=$(dirname "${dest_file}")
-      mkdir -p "${dest_dir}"
-      cp "${built_file}" "${dest_file}"
-      examples_files+=("templates/english/${rel_path}")
-      echo -e "  ${GREEN}✓${NC} Copied to examples: english/${rel_path}"
+# Copy template HTML files from build output: en/ -> gcds-examples/templates/english
+# These are the built template files at the top level (institutional-landing-page.html, topic-page.html)
+if [ -d "${BUILD_DIR}/en" ]; then
+  for template_file in "${BUILD_DIR}/en"/*.html; do
+    if [ -f "${template_file}" ]; then
+      filename=$(basename "${template_file}")
+      # Skip index and component files - only copy actual templates
+      if [[ "$filename" != "index.html" && "$filename" != "sample-component.html" ]]; then
+        cp "${template_file}" "${EXAMPLES_DEST}/templates/english/${filename}"
+        examples_files+=("templates/english/${filename}")
+        echo -e "  ${GREEN}✓${NC} Copied: templates/english/${filename}"
+      fi
     fi
-  done < <(find "${SOURCE_DIR}/en/templates" -name "*.html" -type f)
+  done
 fi
 
-# Copy templates: fr/templates -> gcds-examples/templates/french
-if [ -d "${SOURCE_DIR}/fr/templates" ]; then
-  while IFS= read -r source_file; do
-    rel_path="${source_file#${SOURCE_DIR}/fr/templates/}"
-    built_file="${BUILD_DIR}/fr/templates/${rel_path}"
-    dest_file="${EXAMPLES_DEST}/templates/french/${rel_path}"
-    
-    if [ -f "${built_file}" ]; then
-      dest_dir=$(dirname "${dest_file}")
-      mkdir -p "${dest_dir}"
-      cp "${built_file}" "${dest_file}"
-      examples_files+=("templates/french/${rel_path}")
-      echo -e "  ${GREEN}✓${NC} Copied to examples: french/${rel_path}"
+# Copy template HTML files from build output: fr/ -> gcds-examples/templates/french
+# These are the built template files at the top level (page-accueil-institutionnelle.html, page-sujets.html)
+if [ -d "${BUILD_DIR}/fr" ]; then
+  for template_file in "${BUILD_DIR}/fr"/*.html; do
+    if [ -f "${template_file}" ]; then
+      filename=$(basename "${template_file}")
+      # Skip index and component files - only copy actual templates
+      if [[ "$filename" != "index.html" && "$filename" != "exemple-composant.html" ]]; then
+        cp "${template_file}" "${EXAMPLES_DEST}/templates/french/${filename}"
+        examples_files+=("templates/french/${filename}")
+        echo -e "  ${GREEN}✓${NC} Copied: templates/french/${filename}"
+      fi
     fi
-  done < <(find "${SOURCE_DIR}/fr/templates" -name "*.html" -type f)
+  done
 fi
 
 # Copy components: en/components -> gcds-components (structure TBD)
@@ -108,6 +112,23 @@ fi
 echo ""
 echo -e "${GREEN}✓ Files copied successfully!${NC}"
 echo ""
+
+# Show summary of copied files
+if [ ${#examples_files[@]} -gt 0 ]; then
+  echo -e "${BLUE}Summary - Files copied to gcds-examples:${NC}"
+  for file in "${examples_files[@]}"; do
+    echo -e "  • ${file}"
+  done
+  echo ""
+fi
+
+if [ ${#components_files[@]} -gt 0 ]; then
+  echo -e "${BLUE}Summary - Component files found:${NC}"
+  for file in "${components_files[@]}"; do
+    echo -e "  • ${file}"
+  done
+  echo ""
+fi
 
 # Function to prepare PR for a package
 prepare_pr() {
