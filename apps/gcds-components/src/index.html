@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>GCDS Components Demo</title>
+
+    <!-- GC Design System Utility -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-utility@1.9.2/dist/gcds-utility.min.css"
+    />
+    <!-- GC Design System Components -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.40.0/dist/gcds/gcds.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.40.0/dist/gcds/gcds.esm.js"
+    ></script>
+
+    <script type="module" src="/build/first-gcds-component.esm.js"></script>
+    <script nomodule src="/build/first-gcds-component.js"></script>
+  </head>
+  <body>
+    <h1 style="padding: 2rem;">GCDS Service Info Component Demo</h1>
+
+    <h2 style="padding: 0 2rem;">Example 1: Default (9 items, 3 columns, hidden heading)</h2>
+    <gcds-srvinfo id="srvinfo1"></gcds-srvinfo>
+
+    <h2 style="padding: 0 2rem; margin-top: 3rem;">Example 2: 6 items, 2 columns, visible heading</h2>
+    <gcds-srvinfo id="srvinfo2" items="6" columns="2" heading-visible heading="Services and information"></gcds-srvinfo>
+
+    <h2 style="padding: 0 2rem; margin-top: 3rem;">Example 3: 3 items, 1 column, visible heading</h2>
+    <gcds-srvinfo id="srvinfo3" items="3" columns="1" heading-visible heading="Featured services"></gcds-srvinfo>
+
+    <script>
+      // Sample data for service items
+      const sampleServiceItems = [
+        {
+          linkText: "Employment Insurance",
+          linkHref: "#",
+          description: "Get financial help if you lose your job or need to take time off work"
+        },
+        {
+          linkText: "Canada Pension Plan",
+          linkHref: "#",
+          description: "Learn about retirement, disability and survivor benefits"
+        },
+        {
+          linkText: "Old Age Security",
+          linkHref: "#",
+          description: "Monthly payment for seniors 65 and older"
+        },
+        {
+          linkText: "Social Insurance Number",
+          linkHref: "#",
+          description: "Apply for or replace your Social Insurance Number"
+        },
+        {
+          linkText: "Funding programs",
+          linkHref: "#",
+          description: "Find funding opportunities for businesses and organizations"
+        },
+        {
+          linkText: "Jobs and the workplace",
+          linkHref: "#",
+          description: "Find a job, training and workplace rights"
+        },
+        {
+          linkText: "Student loans",
+          linkHref: "#",
+          description: "Apply for student financial assistance"
+        },
+        {
+          linkText: "Skills development",
+          linkHref: "#",
+          description: "Programs to help you develop job skills"
+        },
+        {
+          linkText: "Labour standards",
+          linkHref: "#",
+          description: "Learn about your rights and responsibilities at work"
+        }
+      ];
+
+      // Set service items for all examples
+      document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('srvinfo1').serviceItems = sampleServiceItems;
+        document.getElementById('srvinfo2').serviceItems = sampleServiceItems;
+        document.getElementById('srvinfo3').serviceItems = sampleServiceItems;
+      });
+    </script>
+  </body>
+</html>
