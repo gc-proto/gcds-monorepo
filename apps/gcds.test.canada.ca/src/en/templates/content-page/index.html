@@ -1,0 +1,120 @@
+---
+contentHeader: "Experimental – link descender test"
+dateModified: "2026-04-02"
+description: "Testing gcds-link underline rendering with text containing many descending characters (g, p, q, y, j)."
+permalink: "/en/content-page.html"
+layout: "layouts/no-container.njk"
+title: "Link descender test (en)"
+langToggleDisabled: true
+---
+
+<gcds-container size="xl" main-container alignment="center">
+  <gcds-grid columns="1" columns-desktop="250px 1fr" gap="450" align-items="start">
+
+    <gcds-side-nav label="GC Design System" class="side-nav lg:position-sticky box-border overflow-x-visible align-self-start px-75 hydrated">
+      <gcds-nav-link href="/en" role="listitem" class="hydrated font-bold">GC Design System</gcds-nav-link>
+      <gcds-nav-link href="/en/start-to-use" role="listitem" class="hydrated">Start to use</gcds-nav-link>
+
+      <gcds-nav-group menu-label="Page templates" open-trigger="Page templates" role="listitem" class="hydrated" open="">
+        <gcds-nav-link href="/en/page-templates" role="listitem" class="hydrated">Page templates overview</gcds-nav-link>
+        <gcds-nav-link href="/en/page-templates/basic/" role="listitem" class="hydrated">Basic page</gcds-nav-link>
+      </gcds-nav-group>
+
+      <gcds-nav-group menu-label="Components" open-trigger="Components" role="listitem" class="hydrated">
+        <gcds-nav-link href="/en/components" role="listitem" class="hydrated">Components overview</gcds-nav-link>
+        <gcds-nav-link href="/en/components/breadcrumbs/" role="listitem" class="hydrated">Breadcrumbs</gcds-nav-link>
+        <gcds-nav-link href="/en/components/button/" role="listitem" class="hydrated">Button</gcds-nav-link>
+        <gcds-nav-link href="/en/components/card/" role="listitem" class="hydrated">Card</gcds-nav-link>
+        <gcds-nav-link href="/en/components/link/" role="listitem" class="hydrated">Link</gcds-nav-link>
+        <gcds-nav-link href="/en/components/side-navigation/" role="listitem" class="hydrated">Side navigation</gcds-nav-link>
+      </gcds-nav-group>
+
+      <gcds-nav-group menu-label="Styles" open-trigger="Styles" role="listitem" class="hydrated">
+        <gcds-nav-link href="/en/styles" role="listitem" class="hydrated">Styles overview</gcds-nav-link>
+        <gcds-nav-link href="/en/styles/design-tokens" role="listitem" class="hydrated">Design tokens</gcds-nav-link>
+      </gcds-nav-group>
+    </gcds-side-nav>
+
+    <div>
+      <gcds-heading tag="h1">{{ contentHeader }}</gcds-heading>
+
+      <gcds-heading tag="h2">Links in a paragraph</gcds-heading>
+
+      <gcds-text>
+        Apply early for your <gcds-link href="#">puppy's yearly physical</gcds-link>, especially if you enjoy <gcds-link href="#">geography programs</gcds-link> in July or August. Your <gcds-link href="#">pregnancy journey</gcds-link> may qualify you for <gcds-link href="#">equity-based policy programs</gcds-link> in your region.
+      </gcds-text>
+
+      <gcds-heading tag="h2">Long wrapping link with descenders</gcds-heading>
+
+      <gcds-text>
+        <gcds-link href="#">Apply for pregnancy, parenting, and geographic equity programs through your yearly regional policy gateway</gcds-link>
+      </gcds-text>
+
+      <gcds-heading tag="h2">Links in a list</gcds-heading>
+
+      <ul class="list-disc ms-400">
+        <li><gcds-link href="#">Apply for your yearly puppy playgroup</gcds-link></li>
+        <li><gcds-link href="#">Pregnancy and parenting policy programs</gcds-link></li>
+        <li><gcds-link href="#">Geography, geology, and typography equity</gcds-link></li>
+        <li><gcds-link href="#">Jury duty frequently asked questions</gcds-link></li>
+        <li><gcds-link href="#">Your physical journey through regional programs</gcds-link></li>
+      </ul>
+
+    </div>
+
+  </gcds-grid>
+</gcds-container>
+
+<style>
+  /*
+    LINK UNDERLINE EXPLORATION
+    ––––––––––––––––––––––––––
+    Problem: GCDS tokens set explicit rem values for underline offset and
+    thickness, which overrides font-metric-aware positioning. This causes
+    text-decoration-skip-ink to clip descenders (g, p, q, y, j) because
+    the browser can no longer use the font's internal underline metrics.
+
+    Fix: Reset to `auto` so the browser uses font metrics for both placement
+    and thickness. Browsers default text-decoration-skip-ink to `auto`, so
+    this alone clears descenders correctly without any extra work.
+
+    Hover: Explicit thickness (0.15rem / ~2.4px) is reintroduced only on
+    hover to provide a visible weight change. At rest, `auto` thickness
+    keeps the line thin and font-aware.
+
+    Note: em-based offsets (like 0.2em used in gcds-details) also work well
+    because they scale proportionally with font size, mimicking font-metric
+    behaviour. Fixed rem values do not scale this way.
+  */
+
+  /* gcds-link component — overrides via inherited CSS custom properties */
+  gcds-link {
+    --gcds-link-decoration-thickness: auto;
+    --gcds-link-underline-offset: auto;
+    --gcds-link-hover-decoration-thickness: 0.15rem;
+  }
+
+  /* Plain <a> tags (e.g. featured links, social links) — set directly */
+  a {
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+  }
+  a:hover {
+    text-decoration-thickness: 0.15rem;
+  }
+
+  /*
+    gcds-nav-link has its own explicit rem tokens for thickness and offset,
+    same root cause as gcds-link. Reset to auto for the same reason.
+    gcds-nav-group top nav trigger has a separate offset token — also
+    overridden to 0.2em to match gcds-details' em-relative approach.
+  */
+  gcds-nav-link {
+    --gcds-nav-link-default-decoration-thickness: from-font;
+    --gcds-nav-link-default-underline-offset: 0.3em; /* larger em value needed — nav-link font is smaller than gcds-details */
+    --gcds-nav-link-hover-decoration-thickness: 0.125rem; /* matches gcds-details hover */
+  }
+  gcds-nav-group {
+    --gcds-nav-group-top-nav-trigger-underline-offset: 0.2em;
+  }
+</style>
