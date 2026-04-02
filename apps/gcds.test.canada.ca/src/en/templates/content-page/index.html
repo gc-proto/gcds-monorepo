@@ -89,18 +89,8 @@ langToggleDisabled: true
 
   /* gcds-link component — overrides via inherited CSS custom properties */
   gcds-link {
-    --gcds-link-decoration-thickness: auto;
+    --gcds-link-decoration-thickness: from-font;
     --gcds-link-underline-offset: auto;
-    --gcds-link-hover-decoration-thickness: 0.15rem;
-  }
-
-  /* Plain <a> tags (e.g. featured links, social links) — set directly */
-  a {
-    text-decoration-thickness: auto;
-    text-underline-offset: auto;
-  }
-  a:hover {
-    text-decoration-thickness: 0.15rem;
   }
 
   /*
@@ -110,7 +100,7 @@ langToggleDisabled: true
     overridden to 0.2em to match gcds-details' em-relative approach.
   */
   gcds-nav-link {
-    --gcds-nav-link-default-decoration-thickness: from-font;
+    /* --gcds-nav-link-default-decoration-thickness: auto; */
     --gcds-nav-link-default-underline-offset: 0.3em; /* larger em value needed — nav-link font is smaller than gcds-details */
     --gcds-nav-link-hover-decoration-thickness: 0.125rem; /* matches gcds-details hover */
   }
