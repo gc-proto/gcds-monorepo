@@ -86,7 +86,15 @@ langToggleDisabled: true
     gcds-nav-link: original 0.0625rem thickness is fine, but the fixed
     0.25rem offset token is replaced with 0.3em (em-relative) so it scales
     with font size and clears descenders at the nav-link's smaller font size.
-    gcds-nav-group top nav trigger offset also overridden to 0.2em.
+
+    Screen density note: fixed rem offsets are subject to pixel-rounding and
+    render at different physical positions relative to glyphs depending on
+    display density. On a 1x display, a fixed offset may land close enough to
+    a descender to suppress skip-ink gaps; on a 2x/Retina display, sub-pixel
+    rendering shifts that same offset slightly, producing different gap
+    behaviour. Using auto lets the browser resolve the offset using font
+    metrics in a density-aware way, giving consistent skip-ink rendering
+    across displays.
 
     Note: em-based offsets scale proportionally with font size, mimicking
     font-metric behaviour. Fixed rem offsets do not scale this way.
