@@ -243,42 +243,33 @@ showDefaultBreadcrumbs: false
     text-decoration-skip-ink to clip descenders (g, p, q, y, j) because
     the browser can no longer use the font's internal underline metrics.
 
-    Fix: Reset to `auto` so the browser uses font metrics for both placement
-    and thickness. Browsers default text-decoration-skip-ink to `auto`, so
-    this alone clears descenders correctly without any extra work.
+    Fix: from-font uses the font file's own underline weight for thickness,
+    keeping it font-aware without triggering geometric positioning.
+    Offset left to browser auto for the same reason.
+    Browsers default text-decoration-skip-ink to `auto`, so descenders
+    clear correctly without any extra work.
 
-    Hover: Explicit thickness (0.15rem / ~2.4px) is reintroduced only on
-    hover to provide a visible weight change. At rest, `auto` thickness
-    keeps the line thin and font-aware.
+    Hover: Plain <a> tags get an explicit 0.125rem (2px) hover thickness,
+    matching the original GCDS hover token value. gcds-link hover falls
+    back to --gcds-link-hover-decoration-thickness from the CDN (0.125rem),
+    so no override is needed there.
 
-    Note: em-based offsets (like 0.2em used in gcds-details) also work well
-    because they scale proportionally with font size, mimicking font-metric
-    behaviour. Fixed rem values do not scale this way.
+    Note: em-based offsets scale proportionally with font size, mimicking
+    font-metric behaviour. Fixed rem offsets do not scale this way.
   */
 
   /* gcds-link component — overrides via inherited CSS custom properties */
   gcds-link {
-    --gcds-link-decoration-thickness: auto;
+    --gcds-link-decoration-thickness: from-font;
     --gcds-link-underline-offset: auto;
-    --gcds-link-hover-decoration-thickness: 0.15625rem; /* 2.5px */
   }
 
   /* Plain <a> tags (e.g. featured links, social links) — set directly */
   a {
-    text-decoration-thickness: auto;
+    text-decoration-thickness: from-font;
     text-underline-offset: auto;
   }
   a:hover {
-    text-decoration-thickness: 0.15rem;
-  }
-
-  /*
-    gcds-nav-group top nav trigger uses a fixed rem token for underline
-    offset. Overriding with 0.2em matches gcds-details' approach, which
-    uses an em-relative value that scales with font size and works cleanly
-    with skip-ink across descenders.
-  */
-  gcds-nav-group {
-    --gcds-nav-group-top-nav-trigger-underline-offset: 0.2em;
+    text-decoration-thickness: 0.125rem; /* 2px — matches original GCDS hover token */
   }
 </style>

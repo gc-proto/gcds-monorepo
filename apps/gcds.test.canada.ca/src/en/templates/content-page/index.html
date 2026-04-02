@@ -74,17 +74,22 @@ langToggleDisabled: true
     text-decoration-skip-ink to clip descenders (g, p, q, y, j) because
     the browser can no longer use the font's internal underline metrics.
 
-    Fix: Reset to `auto` so the browser uses font metrics for both placement
-    and thickness. Browsers default text-decoration-skip-ink to `auto`, so
-    this alone clears descenders correctly without any extra work.
+    Fix: from-font uses the font file's own underline weight for thickness,
+    keeping it font-aware without triggering geometric positioning.
+    Offset left to browser auto for the same reason.
+    Browsers default text-decoration-skip-ink to `auto`, so descenders
+    clear correctly without any extra work.
 
-    Hover: Explicit thickness (0.15rem / ~2.4px) is reintroduced only on
-    hover to provide a visible weight change. At rest, `auto` thickness
-    keeps the line thin and font-aware.
+    gcds-link hover falls back to --gcds-link-hover-decoration-thickness
+    from the CDN (0.125rem / 2px), so no override needed.
 
-    Note: em-based offsets (like 0.2em used in gcds-details) also work well
-    because they scale proportionally with font size, mimicking font-metric
-    behaviour. Fixed rem values do not scale this way.
+    gcds-nav-link: original 0.0625rem thickness is fine, but the fixed
+    0.25rem offset token is replaced with 0.3em (em-relative) so it scales
+    with font size and clears descenders at the nav-link's smaller font size.
+    gcds-nav-group top nav trigger offset also overridden to 0.2em.
+
+    Note: em-based offsets scale proportionally with font size, mimicking
+    font-metric behaviour. Fixed rem offsets do not scale this way.
   */
 
   /* gcds-link component — overrides via inherited CSS custom properties */
@@ -94,17 +99,11 @@ langToggleDisabled: true
   }
 
   /*
-    gcds-nav-link has its own explicit rem tokens for thickness and offset,
-    same root cause as gcds-link. Reset to auto for the same reason.
-    gcds-nav-group top nav trigger has a separate offset token — also
-    overridden to 0.2em to match gcds-details' em-relative approach.
+    gcds-nav-link: original thickness token (0.0625rem) is fine — only the
+    offset needs fixing. 0.3em used instead of the fixed 0.25rem token
+    because the nav-link font is smaller and needs proportionally more offset.
   */
   gcds-nav-link {
-    /* --gcds-nav-link-default-decoration-thickness: auto; */
-    --gcds-nav-link-default-underline-offset: 0.3em; /* larger em value needed — nav-link font is smaller than gcds-details */
-    --gcds-nav-link-hover-decoration-thickness: 0.125rem; /* matches gcds-details hover */
-  }
-  gcds-nav-group {
-    --gcds-nav-group-top-nav-trigger-underline-offset: 0.2em;
+    --gcds-nav-link-default-underline-offset: 0.3em;
   }
 </style>
