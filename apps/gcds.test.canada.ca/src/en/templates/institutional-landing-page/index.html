@@ -401,28 +401,6 @@ showDefaultBreadcrumbs: false
 </style>
 
 <style>
-  /*
-    LINK UNDERLINE EXPLORATION
-    ––––––––––––––––––––––––––
-    Problem: GCDS tokens set explicit rem values for underline offset and
-    thickness, which overrides font-metric-aware positioning. This causes
-    text-decoration-skip-ink to clip descenders (g, p, q, y, j) because
-    the browser can no longer use the font's internal underline metrics.
-
-    Fix: from-font uses the font file's own underline weight for thickness,
-    keeping it font-aware without triggering geometric positioning.
-    Offset left to browser auto for the same reason.
-    Browsers default text-decoration-skip-ink to `auto`, so descenders
-    clear correctly without any extra work.
-
-    Hover: Plain <a> tags get an explicit 0.125rem (2px) hover thickness,
-    matching the original GCDS hover token value. gcds-link hover falls
-    back to --gcds-link-hover-decoration-thickness from the CDN (0.125rem),
-    so no override is needed there.
-
-    Note: em-based offsets scale proportionally with font size, mimicking
-    font-metric behaviour. Fixed rem offsets do not scale this way.
-  */
 
   /* gcds-link component — overrides via inherited CSS custom properties */
   gcds-link {

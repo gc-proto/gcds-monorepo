@@ -67,12 +67,14 @@ langToggleDisabled: true
 
 <style>
   /*
-    LINK UNDERLINE EXPLORATION
+    Link underline exportation and hypothesis:
     ––––––––––––––––––––––––––
     Problem: GCDS tokens set explicit rem values for underline offset and
-    thickness, which overrides font-metric-aware positioning. This causes
-    text-decoration-skip-ink to clip descenders (g, p, q, y, j) because
-    the browser can no longer use the font's internal underline metrics.
+    thickness, which triggers geometric positioning instead of font-metric-
+    aware positioning. This can place the underline deeper into the descender
+    zone, so that text-decoration-skip-ink interruptions cut through more of
+    the glyph body rather than cleanly clearing it — producing what looks
+    like clipping on characters like g, p, q, y, and j.
 
     Fix: from-font uses the font file's own underline weight for thickness,
     keeping it font-aware without triggering geometric positioning.
@@ -87,19 +89,22 @@ langToggleDisabled: true
     0.25rem offset token is replaced with 0.3em (em-relative) so it scales
     with font size and clears descenders at the nav-link's smaller font size.
 
-    Screen density note: fixed rem offsets are subject to pixel-rounding and
-    render at different physical positions relative to glyphs depending on
-    display density. On a 1x display, a fixed offset may land close enough to
-    a descender to suppress skip-ink gaps; on a 2x/Retina display, sub-pixel
-    rendering shifts that same offset slightly, producing different gap
-    behaviour. Using auto lets the browser resolve the offset using font
-    metrics in a density-aware way, giving consistent skip-ink rendering
-    across displays.
+    Screen density note: fixed rem offsets are subject to pixel-snapping, and
+    the snapped physical position varies by display density. On a 1x display,
+    the available pixel grid is coarser, so a fixed offset may land at a
+    slightly different position relative to the glyph baseline than intended.
+    On a 2x/Retina display, the finer pixel grid allows more precise
+    placement. These rounding differences appear to be large enough to
+    meaningfully affect skip-ink gap behaviour - as seen when tested on a Mac retina vs 
+    windows device with different line overlap results. Using auto sidesteps 
+    this uncertainty by letting the browser resolve the offset from font metrics 
+    in a rendering-context-aware way, which should yield more consistent skip-ink
+    behaviour across display densities.
 
-    Note: em-based offsets scale proportionally with font size, mimicking
+    Additional note: em-based offsets scale proportionally with font size, mimicking
     font-metric behaviour. Fixed rem offsets do not scale this way.
+        (Ref: MDN — CSS values and units: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
   */
-
   /* gcds-link component — overrides via inherited CSS custom properties */
   gcds-link {
     --gcds-link-decoration-thickness: from-font;
