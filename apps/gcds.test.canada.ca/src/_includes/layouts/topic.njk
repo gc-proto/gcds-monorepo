@@ -8,16 +8,16 @@
     <!-- GC Design System Utility -->
     <link
       rel="stylesheet"
-      href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-utility@1.9.2/dist/gcds-utility.min.css"
+      href="https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@1.1.0/dist/gcds-css-shortcuts.min.css"
     />
     <!-- GC Design System Components -->
     <link
       rel="stylesheet"
-      href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.40.0/dist/gcds/gcds.css"
+      href="https://cdn.design-system.canada.ca/@gcds-core/components@1.0.0/dist/gcds/gcds.css"
     />
     <script
       type="module"
-      src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@0.40.0/dist/gcds/gcds.esm.js"
+      src="https://cdn.design-system.canada.ca/@gcds-core/components@1.0.0/dist/gcds/gcds.esm.js"
     ></script>
     {% if hreflang %}
       {% for link in hreflang %}
@@ -58,7 +58,7 @@
 
     <!-- Date modified component -->
     <div class="container-wrapper">
-      <gcds-container size="xl" centered>
+      <gcds-container size="xl" alignment="center">
         {% if dateModified %}
         <gcds-date-modified>{{ dateModified | date("YYYY-MM-DD") }}</gcds-date-modified>
         {% endif %}
